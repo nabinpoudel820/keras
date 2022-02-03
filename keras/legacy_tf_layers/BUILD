@@ -1,8 +1,7 @@
 # Description:
 #   Contains the legacy TF layers (internal TensorFlow version).
 
-load("@org_keras//keras:keras.bzl", "tf_py_test")
-load("@org_keras//keras:keras.bzl", "cuda_py_test")
+load("@org_tensorflow//tensorflow:tensorflow.bzl", "cuda_py_test", "tf_py_test")
 
 package(
     default_visibility = [
@@ -98,9 +97,9 @@ tf_py_test(
         ":core",
         ":layers_base",
         "//:expect_tensorflow_installed",
-        "//keras:combinations",
         "//keras/engine:base_layer",
         "//keras/engine:input_spec",
+        "//keras/testing_infra:test_combinations",
     ],
 )
 
@@ -113,7 +112,7 @@ tf_py_test(
     deps = [
         ":core",
         "//:expect_tensorflow_installed",
-        "//keras:combinations",
+        "//keras/testing_infra:test_combinations",
     ],
 )
 
@@ -168,9 +167,9 @@ tf_py_test(
         ":core",
         ":layers_base",
         "//:expect_tensorflow_installed",
-        "//keras:combinations",
         "//keras/engine:base_layer",
         "//keras/engine:input_spec",
+        "//keras/testing_infra:test_combinations",
     ],
 )
 
@@ -183,8 +182,8 @@ tf_py_test(
     deps = [
         ":layers",
         "//:expect_tensorflow_installed",
-        "//keras:combinations",
         "//keras/engine:base_layer",
         "//keras/engine:input_spec",
+        "//keras/testing_infra:test_combinations",
     ],
 )
